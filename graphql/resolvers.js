@@ -1,34 +1,9 @@
-const people = [
-  {
-    name: "Nicolas",
-    age : 18,
-    gender: "female"
-  },
-  {
-    name: "Nicolas1",
-    age : 18,
-    gender: "female"
-  },
-  {
-    name: "Nicolas2",
-    age : 18,
-    gender: "female"
-  },
-  {
-    name: "Nicolas3",
-    age : 18,
-    gender: "female"
-  },
-  {
-    name: "Nicolas4",
-    age : 18,
-    gender: "female"
-  }
-];
+import { people, getById } from "./db";
 
 const resolvers = {
   Query: {
-    people: ()=> people
+    people: ()=> people,
+    person: (_, { id }) => getById(id)
   }
 };
 
