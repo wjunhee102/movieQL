@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "graphql-yoga": "^1.18.3",
+    "node-fetch": "^2.6.0",
     "typescript": "^3.9.5"
   },
   "devDependencies": {
