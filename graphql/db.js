@@ -1,11 +1,17 @@
 import fetch from "node-fetch";
+import axios from "axios";
 
 const API_URL = "https://yts.am/api/v2/list_movies.json?";
 
-// export const getMovies = (limit, rating) => 
-//   fetch(`${API_URL}`)
-//     .then(res => res.json())
-//     .then(json => json.data.movies);
+const API_URI = "https://yts.am/api/v2/list_movies.json";
+
+const getData = async () => {
+    const { data: {
+      data: { movies }
+    }} = await axios(API_URI);
+
+    return movies;
+}
 
 export const getMovies = (limit, rating) => {
   let REQUEST_URL = API_URL;
@@ -18,6 +24,11 @@ export const getMovies = (limit, rating) => {
   return fetch(REQUEST_URL)
     .then(res => res.json())
     .then(json => json.data.movies);
+}
+
+export const getById = async (id) => {
+  const data = await getData();
+  return data.filter(m => m.id === id);
 }
 
 // let movies = [
